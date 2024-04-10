@@ -1,4 +1,4 @@
-import React from './navbar.scss'
+import "./navbar.scss";
 
 const Navbar = () => {
   return (
