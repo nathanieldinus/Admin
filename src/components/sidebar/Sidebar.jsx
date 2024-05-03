@@ -6,6 +6,7 @@ import WarehouseIcon from '@mui/icons-material/Warehouse';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import LogoutIcon from '@mui/icons-material/Logout';
+import CategoryIcon from '@mui/icons-material/Category';
 
 const Sidebar = () => {
   return (
@@ -40,6 +41,12 @@ const Sidebar = () => {
           <StorefrontIcon className="icon" />
           <span>Orders</span>
         </li>
+        <Link to="/categories">
+          <li>
+            <CategoryIcon className="icon" />
+            <span>Categories</span>
+          </li>
+        </Link>
         <p className="title">USER</p>
         <li>
           <PermIdentityIcon className="icon" />
