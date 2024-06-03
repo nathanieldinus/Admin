@@ -53,10 +53,12 @@ const Sidebar = () => {
           </li>
         </Link>
         <p className="title">USER</p>
-        <li>
-          <PermIdentityIcon className="icon" />
-          <span>Profile</span>
-        </li>
+        <Link to="/login">
+          <li>
+            <PermIdentityIcon className="icon" />
+            <span>Profile</span>
+          </li>
+        </Link>
         <li>
           <LogoutIcon className="icon" />
           <span>Logout</span>
