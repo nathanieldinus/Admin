@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { Children, useContext, useState } from "react";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import List from "./pages/list/List";
@@ -9,9 +9,21 @@ import { productInputs, userInputs } from "./formsource";
 import Categories from "./pages/categories/Categories";
 import "./style/dark.scss";
 import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
   const {darkMode} = useContext(DarkModeContext);
+
+  const{currentUser} = useContext(AuthContext);
+
+  const RequireAuth = ({ children }) => {
+    return currentUser ? children : <Navigate to="/login" />;
+  };
+  
+  const NotRequireAuth = ({ children }) => {
+    return currentUser ? <Navigate to="/" /> : children;
+  };
+  
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
