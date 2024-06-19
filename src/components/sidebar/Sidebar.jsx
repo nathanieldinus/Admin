@@ -10,6 +10,7 @@ import CategoryIcon from '@mui/icons-material/Category';
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { signOut } from "firebase/auth";
+import {auth} from "../../firebase"
 import { AuthContext } from "../../context/AuthContext";
 
 const Sidebar = () => {
@@ -19,13 +20,13 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const handleLogout = () =>{
     signOut(auth)
-    .then(() =>{
-      authDispatch({type: "LOGOUT"});
-      navigate("/login");
-    })
-    .catch((error) => {
-      console.error("Logout error: ", error);
-    });
+      .then(() =>{
+        authDispatch({type: "LOGOUT"});
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error("Logout error: ", error);
+      });
     };
   return (
     <div className="sidebar">
