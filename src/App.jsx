@@ -10,6 +10,7 @@ import Categories from "./pages/categories/Categories";
 import "./style/dark.scss";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
+import { productColumns, userColumns } from "./datatablesource";
 
 function App() {
   const {darkMode} = useContext(DarkModeContext);
@@ -32,13 +33,13 @@ function App() {
            <Route path="login" element={<NotRequireAuth><Login /></NotRequireAuth>}></Route>
             <Route index element={<RequireAuth><Home /></RequireAuth>}></Route>
             <Route path="users">
-              <Route index element={<RequireAuth><List /></RequireAuth>}></Route>
-              <Route path=":userId" element={<RequireAuth><Single /></RequireAuth>}></Route>
+              <Route index element={<RequireAuth><List columns ={userColumns}/></RequireAuth>}></Route>
+              <Route path=":userId" element={<RequireAuth><Single columns={userColumns}/></RequireAuth>}></Route>
               <Route path="new" element={<RequireAuth><New inputs={userInputs} title="Add New User" /></RequireAuth>}/>
             </Route>
             <Route path="products">
-              <Route index element={<RequireAuth><List /></RequireAuth>}></Route>
-              <Route path="productId" element={<RequireAuth><Single /></RequireAuth>}></Route>
+              <Route index element={<RequireAuth><List columns={productColumns}/></RequireAuth>}></Route>
+              <Route path="productId" element={<RequireAuth><Single columns={productColumns}/></RequireAuth>}></Route>
               <Route path="new" element={<RequireAuth><New inputs={productInputs} title="Add New Product" /></RequireAuth>}/>
             </Route>
             <Route path="categories">
