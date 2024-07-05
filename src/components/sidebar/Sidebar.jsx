@@ -29,7 +29,7 @@ const Sidebar = () => {
       });
     };
   return (
-    <div className="sidebar">
+    <div className="sidebar" data-testid="sidebar">
     <div className="top">
       <Link to="/">
         <span className="logo">Store</span>
@@ -47,7 +47,7 @@ const Sidebar = () => {
         </Link>
         <p className="title">LIST</p>
         <Link to="/users">
-          <li>
+          <li data-testid="users">
             <PersonIcon className="icon" />
             <span>Users</span>
           </li>

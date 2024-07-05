@@ -18,5 +18,15 @@ describe('template spec', () => {
 
     cy.get('div.home')
       .should('be.visible')
+
+    cy.get('[data-testid="sidebar"]').should("exist")
+    //cy.visit('http://localhost:5173/users')
+
+    cy.get('[data-testid="users"]').click()
+
+    cy.url().should('include', '/users')
+
+    cy.get('div.datatableTitle').contains('USERS')
+
   })
 })
