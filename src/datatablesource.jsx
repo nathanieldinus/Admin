@@ -23,14 +23,14 @@ export const userColumns = [
 export const productColumns = [
     { field: "id", headerName: "ID", width: 150 },
     {
-        field: "title",
-        headerName: "Title",
+        field: "name",
+        headerName: "Name",
         width: 170,
         renderCell: (params) => {
             return (
             <div className="cellWithImg">
                 <img className="cellImg" src={params.row.img} alt="image" />
-                {params.row.title}
+                {params.row.name}
             </div>
             );
         },
@@ -44,20 +44,16 @@ export const productColumns = [
 export const categoriesColumns = [
     { field: "id", headerName: "ID", width: 150 },
     {
-        field: "title",
-        headerName: "Title",
+        field: "name",
+        headerName: "Name",
         width: 170,
         renderCell: (params) => {
             return (
             <div className="cellWithImg">
                 <img className="cellImg" src={params.row.img} alt="image" />
-                {params.row.title}
+                {params.row.name}
             </div>
             );
         },
     }, 
-    { field: "description", headerName: "Description", width: 230 }, 
-    { field: "price", headerName: "Price", width: 70 },
-    { field: "category", headerName: "Category", width: 90 },
-    { field: "stock", headerName: "Stock", width: 90 } 
 ]; 

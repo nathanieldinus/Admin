@@ -13,9 +13,8 @@ const Categories = ({columns}) => {
         <Navbar />
         <div className="widgets">
           <Widget type="user" />
-          <Widget type="order"/>
-          <Widget type="earning"/>
-          <Widget type="balance"/>
+          <Widget type="product"/>
+          <Widget type="categories"/>
         </div>
         <Datatable columns={columns}/>
       </div>

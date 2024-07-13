@@ -15,30 +15,32 @@ const Single = ({columns}) => {
     const [data, setData] = useState({});
 
     useEffect(() => {
-        const fetchData = async () => {  
-          const docRef  = doc(db, type, id);
-          const docSnap  = await getDoc(docRef);      
-          const docSnapData = docSnap.data();
-          
-          if (docSnap.exists()) { 
-            switch (type) {
-              case "users":
-                setData({...docSnapData, detailName : docSnapData.displayName}); 
-                break; 
-              case "products":
-                setData({...docSnapData, detailName : docSnapData.title}); 
-                break; 
-              default: 
-                break;
-            } 
-          }   
-        };
-        fetchData();  
-      }, []);   
-    
-      const AllKeys = Object.keys(data); 
-      const keys = AllKeys.filter(e => e !== 'timeStamp' && e !== 'img' && e !== 'password' && e !== 'displayName' && e !== 'title' && e !== 'detailName')
-
+      const fetchData = async () => {  
+        const docRef  = doc(db, type, id);
+        const docSnap  = await getDoc(docRef);      
+        const docSnapData = docSnap.data();
+        
+        if (docSnap.exists()) { 
+          switch (type) {
+            case "users":
+              setData({...docSnapData, detailName : docSnapData.displayName}); 
+              break; 
+            case "products":
+              setData({...docSnapData, detailName : docSnapData.name}); 
+              break; 
+            case "categories":
+              setData({...docSnapData, detailName : docSnapData.name}); 
+              break; 
+            default: 
+              break;
+          } 
+        }   
+      };
+      fetchData();  
+    }, []);   
+  
+    const AllKeys = Object.keys(data); 
+    const keys = AllKeys.filter(e => e !== 'timeStamp' && e !== 'img' && e !== 'password' && e !== 'displayName' && e !== 'title' && e !== 'detailName')
   return (
     <div className="single">
       <Sidebar />
