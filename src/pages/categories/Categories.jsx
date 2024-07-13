@@ -3,8 +3,9 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Widget from "../../components/widget/Widget";
 import MyDatatable from "../../components/MyDatatable/MyDatatable";
+import Datatable from "../../components/datatable/Datatable";
 
-const Categories = ({title}) => {
+const Categories = ({columns}) => {
   return (
     <div className="categories">
       <Sidebar />
@@ -16,8 +17,7 @@ const Categories = ({title}) => {
           <Widget type="earning"/>
           <Widget type="balance"/>
         </div>
-        <h1>{title}</h1>
-        <MyDatatable />
+        <Datatable columns={columns}/>
       </div>
     </div>
   );

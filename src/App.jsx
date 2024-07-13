@@ -5,12 +5,12 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-import { productInputs, userInputs } from "./formsource";
+import { productInputs, userInputs, categoriesInputs } from "./formsource";
 import Categories from "./pages/categories/Categories";
 import "./style/dark.scss";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { productColumns, userColumns } from "./datatablesource";
+import { productColumns, userColumns, categoriesColumns } from "./datatablesource";
 
 function App() {
   const {darkMode} = useContext(DarkModeContext);
@@ -43,9 +43,9 @@ function App() {
               <Route path="new" element={<RequireAuth><New inputs={productInputs} title="Add New Product" /></RequireAuth>}/>
             </Route>
             <Route path="categories">
-              <Route index element={<Categories/> }></Route>
-              <Route path=":userId" element={<Single />}></Route>
-              <Route path="new" element={<New inputs={userInputs} title="Add New User"/>}/>
+              <Route index element={<RequireAuth><Categories columns={categoriesColumns}/></RequireAuth>}></Route>
+              <Route path=":userId" element={<RequireAuth><Single columns={categoriesColumns}/></RequireAuth>}></Route>
+              <Route path="new" element={<RequireAuth><New inputs={categoriesInputs} title="Add New Categories" /></RequireAuth>}/>
             </Route>
         </Route>
         </Routes>
