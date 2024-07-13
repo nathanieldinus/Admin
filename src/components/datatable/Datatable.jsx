@@ -52,7 +52,7 @@ const Datatable = ({columns}) => {
               <span className="viewButton">View</span>
             </Link>
             <span>
-              <span
+              <span data-testid="delete"
                 className="deleteButton"
                 onClick={() => handleDelete(params.row.id)}
               >
@@ -69,7 +69,7 @@ const Datatable = ({columns}) => {
     <div className="datatable">
       <div className="datatableTitle">
         {type.toUpperCase()}
-        <Link to={"/" + type + "/new"} className="link">
+        <Link data-testid="add_new" to={"/" + type + "/new"} className="link">
           Add New
         </Link>
       </div>

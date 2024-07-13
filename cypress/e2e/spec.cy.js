@@ -20,13 +20,33 @@ describe('template spec', () => {
       .should('be.visible')
 
     cy.get('[data-testid="sidebar"]').should("exist")
-    //cy.visit('http://localhost:5173/users')
 
     cy.get('[data-testid="users"]').click()
 
     cy.url().should('include', '/users')
 
     cy.get('div.datatableTitle').contains('USERS')
+
+    cy.get('[data-testid="categories"]').click()
+
+    cy.get('div.title').contains('USERS')
+    cy.get('div.title').contains('PRODUCTS')
+    cy.get('div.title').contains('CATEGORIES')
+
+    cy.get('[data-testid="add_new"]').click()
+
+    cy.get('input#name')
+      .should('be.visible')
+      .should('have.attr', 'placeholder', 'Coffee')
+      .type('Dessert').should('have.value', 'Dessert')
+
+    cy.get('[data-testid="send"]').click()
+    cy.url().should('include', '/categories')
+
+    cy.get('div.cellWithImg').contains('Dessert')
+
+    cy.get('[data-testid="delete"]').click()
+    cy.get('div.cellWithImg').should('not.contain', 'Dessert')
 
   })
 })
